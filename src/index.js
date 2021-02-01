@@ -6,13 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Jumbotron, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import configureStore from "./redux/configureStore";
+import { Provider as ReduxProvider } from "react-redux";
+
+const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ReduxProvider store={store}>
     <Router>
       <App></App>
     </Router>
-  </React.StrictMode>,
+  </ReduxProvider>,
   document.getElementById("root")
 );
 
